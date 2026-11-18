@@ -2,14 +2,15 @@ public class Main {
     public static void main(String[] args) {
         int currentAccount = 100;
         int topUp = 1500;
-        int bonus = topUp / 100;
-        int totalNoBonus = currentAccount + topUp;
-        int totalWithBonus = currentAccount + topUp + bonus;
+        int bonus;
 
-        if (topUp >= 1_000) {
-            System.out.println("Итоговый счет: " + totalWithBonus + ", бонусные рубли: " + bonus);
+        if (topUp > 1_000) {
+            bonus = topUp / 100;
         } else {
-            System.out.println("Итоговый счет: " + totalNoBonus + ", бонусные рубли: " + bonus);
+            bonus = 0;
         }
+
+        int total = currentAccount + topUp + bonus;
+        System.out.println("Итоговый счет: " + total + ", бонусные рубли: " + bonus);
     }
 }
